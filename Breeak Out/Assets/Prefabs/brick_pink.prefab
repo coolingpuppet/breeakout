@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4462475619187553712}
   - component: {fileID: 4462475619187553710}
   - component: {fileID: 4462475619187553713}
+  - component: {fileID: -1723601977367011059}
   m_Layer: 0
   m_Name: brick_pink
   m_TagString: Untagged
@@ -99,3 +100,16 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06503916, y: 0.052552924}
   m_Size: {x: 1.8699248, y: 0.88439006}
   m_Direction: 1
+--- !u!114 &-1723601977367011059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462475619187553715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8377a9119f7c1494093a186382b227b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 1

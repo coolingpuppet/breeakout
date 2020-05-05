@@ -11,6 +11,8 @@ public class BallScript : MonoBehaviour
 
     public float speed;
     public Transform explosion;
+
+    public GameManager gm;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +42,7 @@ public class BallScript : MonoBehaviour
             Debug.Log ("Ball hit bottom");
             rb.velocity = Vector2.zero;
             inPlay = false;
+            gm.UpdateLives (-1);
         }
 
     }
@@ -49,7 +52,13 @@ public class BallScript : MonoBehaviour
         {
             Transform newExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
             Destroy (newExplosion.gameObject, 2.5f);
+
+            gm.UpdateScore(other.gameObject.GetComponent<BrickScript>().points);
+
+
+
             Destroy (other.gameObject);
+
         }
 
     }
