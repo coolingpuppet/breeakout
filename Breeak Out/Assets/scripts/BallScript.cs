@@ -8,8 +8,10 @@ public class BallScript : MonoBehaviour
 
     public bool inPlay;
     public Transform paddle;
+    public Transform healthPowerUP;
 
     public float speed;
+    public float luck;
     public Transform explosion;
 
     public GameManager gm;
@@ -56,6 +58,11 @@ public class BallScript : MonoBehaviour
     {
         if (other.transform.CompareTag("bricks"))
         {
+            int randChance = Random.Range(1, 101);
+            if (randChance < luck)
+            {
+                Instantiate (healthPowerUP, other.transform.position, other.transform.rotation);
+            }
             Transform newExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
             Destroy (newExplosion.gameObject, 2.5f);
 

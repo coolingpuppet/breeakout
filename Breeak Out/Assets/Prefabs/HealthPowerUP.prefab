@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6678336979382927513}
   m_Layer: 0
   m_Name: HealthPowerUP
-  m_TagString: Untagged
+  m_TagString: ExtraLives
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

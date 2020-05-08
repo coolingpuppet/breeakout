@@ -6,6 +6,7 @@ TagManager:
   tags:
   - bottom
   - bricks
+  - ExtraLives
   layers:
   - Default
   - TransparentFX

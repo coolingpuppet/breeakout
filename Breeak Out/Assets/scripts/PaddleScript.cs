@@ -36,7 +36,12 @@ public class PaddleScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit " + other.name);
+        if (other.CompareTag ("ExtraLives"))
+        {
+            gm.UpdateLives (1);
+            Destroy (other.gameObject);
+        
+        }
 
     }
 }
