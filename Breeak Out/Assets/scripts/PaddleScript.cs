@@ -33,4 +33,10 @@ public class PaddleScript : MonoBehaviour
             transform.position = new Vector2(RightScreenEdge,transform.position.y);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Hit " + other.name);
+
+    }
 }
