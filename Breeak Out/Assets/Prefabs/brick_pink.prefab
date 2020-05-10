@@ -113,3 +113,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 1
+  hitsToBreak: 1
+  hitsprite: {fileID: 0}
