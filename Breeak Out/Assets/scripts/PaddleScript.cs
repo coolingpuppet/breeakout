@@ -8,10 +8,11 @@ public class PaddleScript : MonoBehaviour
     public float RightScreenEdge;
     public float LeftScreenEdge;
     public GameManager gm;
+    AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,6 +43,14 @@ public class PaddleScript : MonoBehaviour
             Destroy (other.gameObject);
         
         }
+        
 
+    }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag ("Ball"))
+        {
+            audio.Play();
+        }
     }
 }

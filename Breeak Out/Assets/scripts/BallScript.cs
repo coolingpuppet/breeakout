@@ -13,12 +13,14 @@ public class BallScript : MonoBehaviour
     public float speed;
     public float luck;
     public Transform explosion;
+    AudioSource audio;
 
     public GameManager gm;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D> ();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -80,6 +82,8 @@ public class BallScript : MonoBehaviour
             Destroy (other.gameObject);
 
             }
+
+            audio.Play();
 
             
         }
