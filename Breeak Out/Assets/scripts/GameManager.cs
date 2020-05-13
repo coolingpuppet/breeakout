@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public int score;
     public Text livestext;
     public Text scoretext;
+    public Text highScoretext;
+    public InputField highscoreInput;
     public GameObject gameOverPanel;
     public GameObject loadLevelPanel;
 
@@ -86,7 +88,28 @@ public class GameManager : MonoBehaviour
     {
         gameover = true;
         gameOverPanel.SetActive(true);
+        int highScore = PlayerPrefs.GetInt("HIGHSCORE");
+        if (score > highScore)
+        {
+            PlayerPrefs.SetInt("HIGHSCORE", score);
+            highScoretext.text = "New Highscore " + "\n" + "Enter Your name";
+            highscoreInput.gameObject.SetActive(true);
+        }
+        else
+        {
+            highScoretext.text = PlayerPrefs.GetString ("HIGHSCORENAME") +"'s" + " Highscore was " + highScore + "\n" + "You can beat it";
 
+        }
+    
+
+    }
+
+    public void NewHighScore()
+    {
+        string highScoreName = highscoreInput.text;
+        PlayerPrefs.SetString ("HIGHSCORENAME", highScoreName);
+        highscoreInput.gameObject.SetActive(false);
+        highScoretext.text ="Congratulations "+ highScoreName + "\n" + "Your New Highsocre " + score;
     }
 
     public void PlayAgain()
