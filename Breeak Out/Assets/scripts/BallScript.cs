@@ -29,6 +29,7 @@ public class BallScript : MonoBehaviour
         if (gm.gameover)
         {
             return;
+           
         }
 
 

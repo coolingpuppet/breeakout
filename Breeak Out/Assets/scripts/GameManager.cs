@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public InputField highscoreInput;
     public GameObject gameOverPanel;
     public GameObject loadLevelPanel;
+    public BallScript script;
+    
+    
 
     public bool gameover;
     public int numberofBricks;
@@ -67,11 +70,16 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                script = FindObjectOfType<BallScript>();  // to be able to acess ballScript.cs functions from gameManager.cs                                                              
+                script.rb.velocity = Vector2.zero;
+                script.inPlay = false;
                 loadLevelPanel.SetActive(true);
                 loadLevelPanel.GetComponentInChildren<Text>(). text = "Loading Level" + (currentLevelIndex+2);
                gameover = true;
                Invoke ("LoadLevel", 3f);
+               
             }
+
         }
     }
     void LoadLevel()
@@ -81,6 +89,7 @@ public class GameManager : MonoBehaviour
         numberofBricks = GameObject.FindGameObjectsWithTag("bricks").Length;
         gameover = false;
         loadLevelPanel.SetActive(false);
+        
     
     }
 
@@ -119,8 +128,8 @@ public class GameManager : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit ();
-        Debug.Log("Game Quit");
+        SceneManager.LoadScene("menu");
+        
     }
     
     
